@@ -8,6 +8,8 @@ services:
         volumes:
           - '.:/symfony'
         command: service supervisor start
+        ports:
+          - '9001:9001'
 
     nginx:
          build: docker/nginx
@@ -19,7 +21,6 @@ services:
              - php
          ports:
              - '80:80'
-
 
     rabbitmq:
         image: rabbitmq:3.4-management
